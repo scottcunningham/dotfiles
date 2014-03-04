@@ -48,7 +48,11 @@ alias ll="ls -lh"
 alias grep='grep --colour'
 alias gitlog='git log --pretty=format:"%h -- %cr -- %an (%ae) -- %s"'
 
-alias get="wget -r -c -np --no-check-certificate --user=`cat ~/.suser`--password=`cat ~/.spasswd`"
+alias get="wget -r -c -np --no-check-certificate --user=`cat ~/.suser` --password=`cat ~/.spasswd`"
+
+# This is for when I'm sshing from my phone...
+alias tmyx=tmux
+alias tmuy=tmux
 
 # rxvt-unicode sometimes messes up screen/tmux, and this fixes it
 if echo $TERM | grep "rxvt-unicode-256color" > /dev/null; then
