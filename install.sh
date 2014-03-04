@@ -1,11 +1,13 @@
 #!/usr/bin/env zsh
 
-for i in `/bin/ls ~/src/dotfiles| sed s/"install.sh"//g | xargs`; do
-    if [[ $i != $1 ]]; then 
-        echo "Linking $i..."
-        if [ -f ~/.$i ]; then
-            mv ~/.$i ~/.$1.old.$RANDOM
-        fi
-        ln -s ~/src/dotfiles/$i ~/.$i
-    fi
+DIR=`pwd`
+DATE=`date | sed s/\ //g`
+
+for i in `/bin/ls $DIR | sed s/"install.sh"//g | xargs`; do
+	echo "Linking $i..."
+	if [ -e .$i ]; then
+    		echo "Backing up $i"
+    		mv ~/.$i ~/.$i.old.$DATE
+	fi
+	ln -s $DIR/$i ~/.$i
 done
