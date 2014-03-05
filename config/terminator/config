@@ -1,0 +1,20 @@
+[global_config]
+  enabled_plugins = CustomCommandsMenu, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+[keybindings]
+[profiles]
+  [[default]]
+  use_theme_colors = False
+  background_color = "#303030"
+  foreground_color = "#d9e6f2"
+  palette = "#000000:#b85d5d:#5db85d:#b8b85d:#5d5db8:#b85db8:#5db8b8:#d9d9d9:#262626:#f5e8e8:#e8f5e8:#f5f5e8:#e8e8f5:#f5e8f5:#e8f5f5:#ffffff"
+  use_system_font = False
+  font = Terminus 10
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
