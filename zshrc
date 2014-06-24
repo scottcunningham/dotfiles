@@ -66,3 +66,26 @@ fi
 PROMPT2="%F{[%d]}%_>"
 PROMPT="%n@%m%~:> "
 RPROMPT='[%*]'
+
+if [[ -f ~/.todo ]] ; then
+    cat ~/.todo;
+    echo ""
+fi
+
+
+# translate ja to en
+function translate () {
+    local FROM=$1
+    local TO=$2
+    echo $0 $1
+    local URL="$(echo "$3" | perl -MURI::Escape -ne 'chomp;print uri_escape($_)')"
+    curl -s -A "Mozilla" "http://translate.google.com/translate_a/t?client=t&ie=UTF-8&text=$URL&sl=$FROM&tl=$TO" | awk -F'"' '{print $2}'
+}
+
+#　play ja to en translation in background with mpv
+function say () {
+    local LANG=$2
+    local URL="$(echo "$1" | perl -MURI::Escape -ne 'chomp;print uri_escape($_)')"
+    if [ -z "$2" ]; then LANG=EN; fi
+    mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=$LANG&q=$URL" &> /dev/null
+}
