@@ -89,3 +89,20 @@ function say () {
     if [ -z "$2" ]; then LANG=EN; fi
     mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=$LANG&q=$URL" &> /dev/null
 }
+
+function powerline_precmd() {
+  export PS1="$(~/bin/powerline-shell.py $? --shell zsh 2> /dev/null)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+install_powerline_precmd
+
+eval `ssh-agent` > /dev/null

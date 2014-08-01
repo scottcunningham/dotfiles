@@ -1,1 +1,24 @@
-/home/scott/.config/terminator/config
+[global_config]
+  enabled_plugins = CustomCommandsMenu, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#000000:#c85757:#57c857:#c8c857:#5757c8:#c857c8:#57c8c8:#e6e6e6:#262626:#e6b2b2:#b2e6b2:#e6e6b2:#b2b2e6:#e6b2e6:#b2e6e6:#ffffff"
+    background_image = None
+    scrollback_lines = 1000
+    use_system_font = False
+    foreground_color = "#d9e6f2"
+    show_titlebar = False
+    font = Inconsolata for Powerline Medium 11
+    background_color = "#171c1c"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
