@@ -49,10 +49,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -61,10 +61,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+backslash split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -115,7 +115,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Quit i3?' -b 'Yes, exit' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -154,8 +154,8 @@ set $gn     #88b090
 set $rd     #e89393
 
 # set some nice colors      border     background  text
-client.unfocused            $tx        $bg         $fg
-client.focused              $tx        $bg         $ia
+client.unfocused            $tx        $bg         $ia
+client.focused              $tx        $bg         $fg
 client.focused_inactive     $tx        $bg         $ac
 client.urgent               $tx        $rd         $tx
 
@@ -165,7 +165,7 @@ bar {
     status_command      i3status # /home/scott/.i3status-extra.sh
     position            top
     workspace_buttons   yes
-    font pango:Terminus, Icons 9
+    font pango:Terminus 9
     colors {
         background #303030
         statusline #cccccc
@@ -195,6 +195,10 @@ new_float pixel 1
 bindsym $mod+Ctrl+l exec i3lock
 bindsym $mod+Ctrl+x exec "i3lock -i ~/.xp.png --pointer=win -u"
 
+# Automatic locking after 10 mins
+bindsym $mod+Ctrl+s exec '/home/scott/bin/suspend.sh'
+exec xautolock -time 5 -locker 'i3lock' &
+
 # Wallpaper
 exec --no-startup-id "feh --bg-scale ~/.bg.jpg"
 
@@ -205,15 +209,10 @@ exec "/usr/bin/nm-applet &"
 exec --no-startup-id "redshift -l 53.2010:6.1114 &"
 
 # Turn off monitor after 10 mins of inactivity
-exec --no-startup-id xset dpms 600
-
-# Automatic locking after 10 mins
-bindsym $mod+Ctrl+s exec '/home/scott/bin/suspend.sh'
-exec xautolock -time 5 -locker 'i3lock' &
-
-exec "xcompmgr"
-exec "dunst"
-exec "mpd ~/.config/mpd/mpd.conf"
+exec --no-startup-id xset dpms 600 &
+exec "xcompmgr &"
+exec "dunst &"
+exec "mpd ~/.config/mpd/mpd.conf &"
 
 assign [class="Iceweasel"] 2
 assign [class="ncmpcpp"] 3
