@@ -201,14 +201,22 @@ exec --no-startup-id xset dpms 600 &
 exec "xcompmgr &"
 exec "dunst &"
 
-assign [class="Iceweasel"] 5|
+assign [class="Iceweasel"] 2|
+assign [class="Spotify"] 3|
+assign [class="Telegram"] 4|
 
-exec --no-startup-id i3-msg "workspace 2|"
-exec --no-startup-id i3-msg "exec /usr/bin/firefox;"
-exec --no-startup-id i3-msg "workspace 1|"
-exec --no-startup-id i3-msg "exec i3-sensible-terminal"
+# Workspace 1: work
+exec --no-startup-id i3-msg "exec i3-sensible-terminal &"
+# Workspace 2: web
+exec --no-startup-id id-msg "exec /usr/bin/firefox &"
+# Workspace 3: music
+exec --no-startup-id i3-msg "exec spotify &"
+# Workspace 4: chat
+exec --no-startup-id i3-msg "exec ~/bin/Telegram/Telegram &"
+exec --no-startup-id i3-msg "exec i3-sensible-terminal -e finch &"
+
 exec "compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -b"
 
 # Screenshots
-bindsym --release Print exec scrot /home/nicolai/Pictures/screenshot-$(date +%Y-%m-%d).png
-bindsym --release Shift+Print exec scrot -s /home/nicolai/Pictures/screenshot-$(date +%Y-%m-%d).png
+bindsym --release Print exec scrot /home/scott/Pictures/screenshot-$(date +%Y-%m-%d-%H:%M:%S.%N).png
+bindsym --release Shift+Print exec scrot -s /home/scott/Pictures/screenshot-$(date +%Y-%m-%d-%H:%M:%S.%N).png
