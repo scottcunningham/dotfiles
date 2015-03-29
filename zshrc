@@ -69,7 +69,6 @@ RPROMPT='[%*]'
 
 if [[ -f ~/.todo ]] ; then
     cat ~/.todo;
-    echo ""
 fi
 
 
@@ -105,4 +104,22 @@ function install_powerline_precmd() {
 
 install_powerline_precmd
 
+alias rake="noglob rake"
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=setting'
+
 eval `ssh-agent` > /dev/null
+
+export NVM_DIR="/home/scott/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+
+vman() {
+    vim -c "SuperMan $*"
+
+    if [ "$?" != "0" ]; then
+    echo "No manual entry for $*"
+    fi
+}
+
+export GOPATH=/home/scott/src/gopath
