@@ -157,15 +157,15 @@ bar {
         statusline              #999999 #999999
         background              #131D24
 
-        focused_workspace       #232D34 #232D34 #93AE03
+        focused_workspace       #232D34 #232D34 #579ACB
         active_workspace        #232D34 #232D34 #999999
         inactive_workspace      #131D24 #131D24 #999999
         urgent_workspace        #999999 #999999 #B33A3A
     }
 }
 
-client.focused                          #9fbc00 #9fbc00 #111111
-client.unfocused                        #505E00 #505E00 #cccccc
+client.focused                          #579ACB #579ACB #111111
+client.unfocused                        #232D34 #232D34 #cccccc
 client.focused_inactive                 #315858 #315858 #cccccc
 client.urgent                           #383a3b #383a3b #cccccc
 
@@ -202,10 +202,12 @@ exec "xcompmgr &"
 exec "dunst &"
 
 assign [class="Iceweasel"] 2|
+assign [class="Firefox"] 2|
 assign [class="Spotify"] 3|
 assign [class="Telegram"] 4|
 
 # Workspace 1: work
+exec --no-startup-id i3-msg "workspace 1|"
 exec --no-startup-id i3-msg "exec i3-sensible-terminal &"
 # Workspace 2: web
 exec --no-startup-id id-msg "exec /usr/bin/firefox &"
@@ -214,6 +216,7 @@ exec --no-startup-id i3-msg "exec spotify &"
 # Workspace 4: chat
 exec --no-startup-id i3-msg "exec ~/bin/Telegram/Telegram &"
 exec --no-startup-id i3-msg "exec i3-sensible-terminal -e finch &"
+exec --no-startup-id i3-msg "exec redshift"
 
 exec "compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -b"
 
