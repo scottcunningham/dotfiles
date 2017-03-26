@@ -14,5 +14,3 @@ fi
 for script in `ls ${HOME}/.zsh/*.zsh`; do
     source $script;
 done
-
-todo list
