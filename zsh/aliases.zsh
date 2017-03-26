@@ -6,7 +6,7 @@ alias irc='ssh irc -tt tmux a -d'
 alias lock='m lock'
 alias tf=terraform
 
-# Fuck off useless prezto defaults
+# rm useless prezto defaults
 unalias rm
 unalias mv
 unalias cp
