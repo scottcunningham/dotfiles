@@ -1,6 +1,7 @@
+# Include homebrew ahead of default PATH and ~/bin after it
 export PATH=/usr/local/bin/:$PATH:$HOME/bin
 export EDITOR=vim
 export KEYTIMEOUT=1
 
-# overwrite files bish
+# overwrite files
 setopt clobber
