@@ -1,13 +1,13 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-DIR=`pwd`
-DATE=`date +"%Y-%d-%m-%H%M%S"`
+DIR=$(pwd)
+DATE=$(date +"%Y-%d-%m-%H%M%S")
 
-for i in `/bin/ls $DIR | grep -v install.sh`; do
-	echo "Linking $i..."
-	if [ -e ~/.$i ]; then
-    		echo "Backing up $i"
-    		mv ~/.$i ~/.$i.old.$DATE
+for i in $(/bin/ls "${DIR}" | grep -v install.sh); do
+	echo "Linking ${i}..."
+	if [ -e "$HOME/.${i}" ]; then
+    		echo "Backing up ${i}"
+    		mv "$HOME/.${i}" "$HOME/.${i}.old.${DATE}"
 	fi
-	ln -s $DIR/$i ~/.$i
+	ln -s "${DIR}/${i}" "$HOME/.${i}"
 done
