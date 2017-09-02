@@ -10,4 +10,5 @@ fi
 
 # Key bindings
 # ------------
+export FZF_DEFAULT_OPTS='--height 60% --reverse'
 source "/Users/Scott/.fzf/shell/key-bindings.zsh"
