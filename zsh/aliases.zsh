@@ -13,3 +13,4 @@ unalias cp
 unalias du
 
 alias lenny='echo "( ͡° ͜ʖ ͡°)"'
+alias shrug='echo "¯\_(ツ)_/¯"'
