@@ -1,0 +1,2 @@
+export HISTSIZE=130000
+export SAVEHIST=130000
