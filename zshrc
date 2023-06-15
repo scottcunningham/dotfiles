@@ -14,3 +14,5 @@ fi
 for script in `ls ${HOME}/.zsh/*.zsh`; do
     source $script;
 done
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
