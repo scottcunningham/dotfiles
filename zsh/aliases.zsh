@@ -1,3 +1,4 @@
+#!/bin/zsh
 alias c=clear
 alias r=reset
 alias l=ls
@@ -14,3 +15,5 @@ unalias du
 
 alias lenny='echo "( ͡° ͜ʖ ͡°)"'
 alias shrug='echo "¯\_(ツ)_/¯"'
+
+alias vim=nvim
