@@ -5,3 +5,6 @@ export KEYTIMEOUT=1
 
 # overwrite files
 setopt clobber
+
+# don't randomly cd to shitty homedirs
+unsetopt cdablevars
