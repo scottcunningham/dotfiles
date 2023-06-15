@@ -1,4 +1,4 @@
-export FZF_DEFAULT_OPTS='--height 20% --exact'  # --reverse
+export FZF_DEFAULT_OPTS='--height 20% --exact --reverse'
 
 ################
 # stolen from https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
